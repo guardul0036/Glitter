@@ -6,31 +6,17 @@ app.use(express.static(__dirname))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:false}))
 
-var messages = [
-	{name: 'Tim', message: 'Hi'},
-	{name: 'Tracy', message: 'Hello'}
+var clubs = [
+	{name: 'Basket Weaver', members:'30', founded: '3/25/1995', president: 'John Smith', goals:'Learn Basket Weaving Principles'},
+	{name: 'Vietnamese Coffee United', members:'1200', founded: '1/24/1995', president: 'Jane Smith', goals:'Expose the World to Vietnamese Cofee'}
 ]
 
-
-var news = [
-	{news: 'hello'}
-]
-
-app.get('/messages', (req, res) =>{
-	res.send(messages)
+app.get('/clubs', (req, res) =>{
+	res.send(clubs)
 })
 
-app.post('/messages', (req, res) =>{
-	messages.push(req.body)
-	res.sendStatus(200)
-})
-
-app.get('/news', (req, res) =>{
-	res.send(news)
-})
-
-app.post('/news', (req, res) =>{
-	news.push(req.body)
+app.post('/clubs', (req, res) =>{
+	clubs.push(req.body)
 	res.sendStatus(200)
 })
 
